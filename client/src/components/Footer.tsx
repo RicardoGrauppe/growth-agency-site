@@ -6,7 +6,11 @@ export default function Footer() {
       <div className="container">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2">
-            <h3 className="text-2xl font-bold font-display mb-4">Growth Agency</h3>
+            <img 
+              src="/images/Nexus Logo Completa Branca.png" 
+              alt="Nexus Logo" 
+              className="h-10 md:h-12 w-auto mb-4 object-contain"
+            />
             <p className="text-muted-foreground max-w-sm">
               The only growth agency for Brazilian Cleaning & Construction businesses in the USA powered by proprietary technology.
             </p>

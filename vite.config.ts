@@ -3,10 +3,33 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
+// Plugin to inject analytics script conditionally
+const analyticsPlugin = (): Plugin => {
+  return {
+    name: "analytics-inject",
+    transformIndexHtml(html) {
+      const analyticsEndpoint = process.env.VITE_ANALYTICS_ENDPOINT;
+      const analyticsWebsiteId = process.env.VITE_ANALYTICS_WEBSITE_ID;
+      
+      if (analyticsEndpoint && analyticsWebsiteId) {
+        const script = `    <script
+      defer
+      src="${analyticsEndpoint}/umami"
+      data-website-id="${analyticsWebsiteId}"></script>`;
+        return html.replace(
+          "    <!-- Analytics script will be injected if VITE_ANALYTICS_ENDPOINT and VITE_ANALYTICS_WEBSITE_ID are set -->",
+          script
+        );
+      }
+      return html;
+    },
+  };
+};
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), analyticsPlugin()];
 
 export default defineConfig({
   plugins,

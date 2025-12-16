@@ -2,7 +2,7 @@ import { CheckCircle2, Globe, Laptop, Megaphone } from "lucide-react";
 
 export default function Solution() {
   return (
-    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#f5f5f5' }}>
+    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#fafafa' }}>
       
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -69,22 +69,22 @@ export default function Solution() {
                 <img 
                   src="/images/service-cleaning.png" 
                   alt="Cleaning Service" 
-                  className="w-full aspect-square object-cover rounded-2xl"
+                  className="w-full aspect-square object-cover rounded-2xl shadow-lg"
                 />
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: 'rgba(5, 9, 50, 0.08)' }}>
+                <div className="p-6 rounded-2xl shadow-lg" style={{ backgroundColor: 'rgba(5, 9, 50, 0.08)' }}>
                   <div className="text-4xl font-bold text-primary mb-2">3x</div>
                   <div className="text-sm" style={{ color: '#666666' }}>Lead Volume Increase</div>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: 'rgba(5, 9, 50, 0.08)' }}>
+                <div className="p-6 rounded-2xl shadow-lg" style={{ backgroundColor: 'rgba(5, 9, 50, 0.08)' }}>
                   <div className="text-4xl font-bold text-primary mb-2">-40%</div>
                   <div className="text-sm" style={{ color: '#666666' }}>Cost Per Acquisition</div>
                 </div>
                 <img 
                   src="/images/service-construction.png" 
                   alt="Construction Service" 
-                  className="w-full aspect-square object-cover rounded-2xl"
+                  className="w-full aspect-square object-cover rounded-2xl shadow-lg"
                 />
               </div>
             </div>
