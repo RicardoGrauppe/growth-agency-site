@@ -54,26 +54,30 @@ export default function SDRForm() {
   };
 
   return (
-    <section id="sdr-form" className="py-24 bg-background relative">
-      <div className="container max-w-3xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to Scale? Let's Talk.</h2>
-          <p className="text-muted-foreground">
-            Book a free 30-minute Growth Analysis. To ensure we can deliver results, we only partner with businesses ready to grow.
-          </p>
-        </div>
+    <section id="sdr-form" className="py-24 relative" style={{ backgroundColor: '#fafefb' }}>
+      <div className="container max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex flex-col justify-center">
+            <h2 className="text-3xl md:text-5xl mb-4" style={{ color: '#000000' }}>
+              <span style={{ fontWeight: '300' }}>Ready to Scale?</span> <span style={{ color: '#00FF94', fontWeight: '700' }}>Let's Talk.</span>
+            </h2>
+            <p className="text-lg" style={{ color: '#666666' }}>
+              Book a free 30-minute Growth Analysis. To ensure we can deliver results, we only partner with businesses ready to grow.
+            </p>
+          </div>
 
-        <Card className="border-primary/20 bg-card/50 backdrop-blur-sm shadow-2xl overflow-hidden">
-          <div className="h-1 bg-secondary w-full">
+          <Card className="shadow-2xl overflow-hidden" style={{ backgroundColor: '#ffffff', border: 'none' }}>
+          <div className="h-1 w-full" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
             <motion.div 
-              className="h-full bg-primary"
+              className="h-full"
+              style={{ backgroundColor: '#00FF94' }}
               initial={{ width: "0%" }}
               animate={{ width: `${((step + 1) / 6) * 100}%` }}
             />
           </div>
           
           <CardHeader>
-            <CardTitle className="text-center text-xl font-light">
+            <CardTitle className="text-center text-xl font-light" style={{ color: '#000000' }}>
               {step < 5 ? `Step ${step + 1} of 5` : "Analysis Complete"}
             </CardTitle>
           </CardHeader>
@@ -89,27 +93,27 @@ export default function SDRForm() {
                 >
                   {isQualified ? (
                     <>
-                      <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="w-10 h-10 text-primary" />
+                      <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-success/20">
+                        <CheckCircle2 className="w-10 h-10 text-success" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white">You're a Match!</h3>
-                      <p className="text-muted-foreground max-w-md mx-auto">
+                      <h3 className="text-2xl font-bold text-success">You're a Match!</h3>
+                      <p className="max-w-md mx-auto" style={{ color: '#666666' }}>
                         Based on your answers, your business is perfectly positioned for our Growth Ecosystem. Let's build your roadmap.
                       </p>
-                      <Button size="lg" className="w-full md:w-auto text-lg px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 mt-4">
+                      <Button size="lg" className="w-full md:w-auto text-lg px-8 py-6 mt-4 hover:bg-success/90" style={{ backgroundColor: '#00FF94', color: '#000000' }}>
                         Select a Time on Calendar
                       </Button>
                     </>
                   ) : (
                     <>
-                      <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Loader2 className="w-10 h-10 text-muted-foreground" />
+                      <div className="w-20 h-20 bg-destructive/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Loader2 className="w-10 h-10 text-destructive" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white">Not quite ready for the Agency...</h3>
-                      <p className="text-muted-foreground max-w-md mx-auto">
+                      <h3 className="text-2xl font-bold text-destructive">Not quite ready for the Agency...</h3>
+                      <p className="max-w-md mx-auto" style={{ color: '#666666' }}>
                         Our agency services are optimized for businesses at a different stage. However, you can start organizing your operations today with our software.
                       </p>
-                      <Button size="lg" variant="outline" className="w-full md:w-auto text-lg px-8 py-6 mt-4">
+                      <Button size="lg" variant="outline" className="w-full md:w-auto text-lg px-8 py-6 mt-4 border-destructive text-destructive hover:bg-destructive/10">
                         Get CleanOps for $39/mo
                       </Button>
                     </>
@@ -131,7 +135,7 @@ export default function SDRForm() {
                           name="service"
                           render={({ field }) => (
                             <FormItem className="space-y-6">
-                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8">
+                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8" style={{ color: '#000000' }}>
                                 What is your primary service?
                               </FormLabel>
                               <FormControl>
@@ -150,7 +154,7 @@ export default function SDRForm() {
                                       <FormControl>
                                         <RadioGroupItem value={opt.val} className="peer sr-only" />
                                       </FormControl>
-                                      <FormLabel className="flex items-center justify-center p-6 border-2 border-border rounded-lg bg-secondary/10 hover:bg-secondary/30 hover:border-primary cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary font-medium text-lg h-full text-center">
+                                      <FormLabel className="flex items-center justify-center p-6 rounded-2xl cursor-pointer transition-all duration-300 font-medium text-lg h-full text-center text-black bg-[rgba(0,255,148,0.12)] border-2 border-transparent peer-data-[state=checked]:border-[#00FF94] peer-data-[state=checked]:bg-[rgba(0,255,148,0.15)] peer-data-[state=checked]:text-[#00FF94] hover:bg-[rgba(0,255,148,0.2)] hover:border-[rgba(0,255,148,0.4)] hover:scale-[1.02] hover:shadow-sm">
                                         {opt.label}
                                       </FormLabel>
                                     </FormItem>
@@ -169,7 +173,7 @@ export default function SDRForm() {
                           name="revenue"
                           render={({ field }) => (
                             <FormItem className="space-y-6">
-                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8">
+                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8" style={{ color: '#000000' }}>
                                 What is your current monthly revenue?
                               </FormLabel>
                               <FormControl>
@@ -188,7 +192,7 @@ export default function SDRForm() {
                                       <FormControl>
                                         <RadioGroupItem value={opt.val} className="peer sr-only" />
                                       </FormControl>
-                                      <FormLabel className="flex items-center p-6 border-2 border-border rounded-lg bg-secondary/10 hover:bg-secondary/30 hover:border-primary cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary font-medium text-lg">
+                                      <FormLabel className="flex items-center p-6 rounded-2xl cursor-pointer transition-all duration-300 font-medium text-lg text-black bg-[rgba(0,255,148,0.12)] border-2 border-transparent peer-data-[state=checked]:border-[#00FF94] peer-data-[state=checked]:bg-[rgba(0,255,148,0.15)] peer-data-[state=checked]:text-[#00FF94] hover:bg-[rgba(0,255,148,0.2)] hover:border-[rgba(0,255,148,0.4)] hover:scale-[1.02] hover:shadow-sm">
                                         {opt.label}
                                       </FormLabel>
                                     </FormItem>
@@ -207,7 +211,7 @@ export default function SDRForm() {
                           name="bottleneck"
                           render={({ field }) => (
                             <FormItem className="space-y-6">
-                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8">
+                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8" style={{ color: '#000000' }}>
                                 What is your biggest bottleneck right now?
                               </FormLabel>
                               <FormControl>
@@ -226,7 +230,7 @@ export default function SDRForm() {
                                       <FormControl>
                                         <RadioGroupItem value={opt.val} className="peer sr-only" />
                                       </FormControl>
-                                      <FormLabel className="flex items-center p-6 border-2 border-border rounded-lg bg-secondary/10 hover:bg-secondary/30 hover:border-primary cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary font-medium text-lg">
+                                      <FormLabel className="flex items-center p-6 rounded-2xl cursor-pointer transition-all duration-300 font-medium text-lg text-black bg-[rgba(0,255,148,0.12)] border-2 border-transparent peer-data-[state=checked]:border-[#00FF94] peer-data-[state=checked]:bg-[rgba(0,255,148,0.15)] peer-data-[state=checked]:text-[#00FF94] hover:bg-[rgba(0,255,148,0.2)] hover:border-[rgba(0,255,148,0.4)] hover:scale-[1.02] hover:shadow-sm">
                                         {opt.label}
                                       </FormLabel>
                                     </FormItem>
@@ -245,7 +249,7 @@ export default function SDRForm() {
                           name="ads"
                           render={({ field }) => (
                             <FormItem className="space-y-6">
-                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8">
+                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8" style={{ color: '#000000' }}>
                                 Are you currently running any paid advertising?
                               </FormLabel>
                               <FormControl>
@@ -263,7 +267,7 @@ export default function SDRForm() {
                                       <FormControl>
                                         <RadioGroupItem value={opt.val} className="peer sr-only" />
                                       </FormControl>
-                                      <FormLabel className="flex items-center p-6 border-2 border-border rounded-lg bg-secondary/10 hover:bg-secondary/30 hover:border-primary cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary font-medium text-lg">
+                                      <FormLabel className="flex items-center p-6 rounded-2xl cursor-pointer transition-all duration-300 font-medium text-lg text-black bg-[rgba(0,255,148,0.12)] border-2 border-transparent peer-data-[state=checked]:border-[#00FF94] peer-data-[state=checked]:bg-[rgba(0,255,148,0.15)] peer-data-[state=checked]:text-[#00FF94] hover:bg-[rgba(0,255,148,0.2)] hover:border-[rgba(0,255,148,0.4)] hover:scale-[1.02] hover:shadow-sm">
                                         {opt.label}
                                       </FormLabel>
                                     </FormItem>
@@ -282,7 +286,7 @@ export default function SDRForm() {
                           name="investment"
                           render={({ field }) => (
                             <FormItem className="space-y-6">
-                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8">
+                              <FormLabel className="text-2xl md:text-3xl font-bold text-center block mb-8" style={{ color: '#000000' }}>
                                 If we find a roadmap to double your leads, are you ready to invest in your growth this month?
                               </FormLabel>
                               <FormControl>
@@ -299,7 +303,7 @@ export default function SDRForm() {
                                       <FormControl>
                                         <RadioGroupItem value={opt.val} className="peer sr-only" />
                                       </FormControl>
-                                      <FormLabel className="flex items-center p-6 border-2 border-border rounded-lg bg-secondary/10 hover:bg-secondary/30 hover:border-primary cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary font-medium text-lg">
+                                      <FormLabel className="flex items-center p-6 rounded-2xl cursor-pointer transition-all duration-300 font-medium text-lg text-black bg-[rgba(0,255,148,0.12)] border-2 border-transparent peer-data-[state=checked]:border-[#00FF94] peer-data-[state=checked]:bg-[rgba(0,255,148,0.15)] peer-data-[state=checked]:text-[#00FF94] hover:bg-[rgba(0,255,148,0.2)] hover:border-[rgba(0,255,148,0.4)] hover:scale-[1.02] hover:shadow-sm">
                                         {isSubmitting && field.value === opt.val ? (
                                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                         ) : null}
@@ -321,6 +325,7 @@ export default function SDRForm() {
             </AnimatePresence>
           </CardContent>
         </Card>
+        </div>
       </div>
     </section>
   );

@@ -26,13 +26,13 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section className="py-24 bg-secondary/20 relative border-y border-border/50">
+    <section className="py-24 relative" style={{ backgroundColor: '#ffffff' }}>
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Great Service alone doesn't build a <span className="text-primary">Million-Dollar Business</span>.
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl" style={{ color: '#666666' }}>
             You deliver 5-star service, but your growth is stuck. Sound familiar?
           </p>
         </div>
@@ -45,16 +45,17 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-card border border-border/50 p-8 hover:border-primary/50 transition-colors group relative overflow-hidden"
+              className="p-8 rounded-2xl transition-all duration-300 group relative overflow-hidden hover:scale-[1.02]"
+              style={{ backgroundColor: 'rgba(5, 9, 50, 0.08)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}
             >
               <div className="absolute top-0 left-0 w-1 h-full bg-primary transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               
-              <div className="mb-6 inline-flex p-3 bg-secondary rounded-none text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                <item.icon className="w-8 h-8" />
+              <div className="mb-6 inline-flex p-3 rounded-2xl transition-colors" style={{ backgroundColor: 'rgba(254, 65, 81, 0.1)' }}>
+                <item.icon className="w-8 h-8 text-primary" />
               </div>
               
-              <h3 className="text-xl font-bold mb-3 font-display">{item.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-bold mb-3 font-display" style={{ color: '#000000' }}>{item.title}</h3>
+              <p className="leading-relaxed" style={{ color: '#666666' }}>
                 {item.description}
               </p>
             </motion.div>
@@ -62,9 +63,32 @@ export default function Problem() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-lg font-medium text-white bg-card inline-block px-6 py-3 border border-border">
-            It's not your fault. You just need a <span className="text-primary font-bold">system</span>.
-          </p>
+          <motion.p 
+            className="text-lg font-medium inline-block px-6 py-3 rounded-2xl relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105"
+            style={{ backgroundColor: 'rgba(5, 9, 50, 0.08)', color: '#000000' }}
+            onClick={() => {
+              const formSection = document.getElementById('sdr-form');
+              if (formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+          >
+            <motion.span
+              className="absolute inset-0 opacity-30"
+              style={{
+                background: 'linear-gradient(90deg, transparent, rgba(254, 65, 81, 0.5), transparent)',
+              }}
+              animate={{
+                x: ['-100%', '200%'],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+            <span className="relative z-10">It's not your fault. You just need a <span className="text-primary font-bold">system</span>.</span>
+          </motion.p>
         </div>
       </div>
     </section>

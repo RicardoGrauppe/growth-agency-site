@@ -36,6 +36,9 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -58,104 +61,112 @@
 
 /* 
   Design Philosophy: Industrial Precision
-  Colors: 
-  - Background: Navy Blue Profundo (#0A192F) -> oklch(0.18 0.06 260)
-  - Primary: Emerald Green Elétrico (#00FF94) -> oklch(0.85 0.25 150)
-  - Text: Off-White (#F0F4F8) -> oklch(0.96 0.01 250)
+  Company Color Palette:
+  - Hot Fuchsia (#fe4151): Primary accent color
+  - White (#ffffff): Foreground text
+  - Black (#000000): Deep contrast
+  - Prussian Blue (#050932): Card backgrounds
+  - Deep Navy (#0a113d): Main background
 */
 
 :root {
-  /* Light mode fallback (though we prefer dark for this brand) */
-  --primary: oklch(0.6 0.18 150); /* Darker emerald for light mode text */
-  --primary-foreground: oklch(0.98 0 0);
+  /* Light mode fallback */
+  --primary: oklch(0.65 0.20 15); /* Hot Fuchsia #fe4151 */
+  --primary-foreground: oklch(1 0 0); /* White text on fuchsia */
   
-  --background: oklch(0.98 0.01 250);
-  --foreground: oklch(0.15 0.05 260);
+  --background: oklch(1 0 0); /* White background */
+  --foreground: oklch(0 0 0); /* Black text */
   
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.05 260);
+  --card: oklch(0.98 0.01 250);
+  --card-foreground: oklch(0 0 0);
   
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.05 260);
+  --popover-foreground: oklch(0 0 0);
   
   --secondary: oklch(0.95 0.02 260);
-  --secondary-foreground: oklch(0.2 0.05 260);
+  --secondary-foreground: oklch(0.15 0.08 260);
   
   --muted: oklch(0.95 0.02 260);
   --muted-foreground: oklch(0.5 0.05 260);
   
   --accent: oklch(0.95 0.02 260);
-  --accent-foreground: oklch(0.2 0.05 260);
+  --accent-foreground: oklch(0.15 0.08 260);
   
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.65 0.20 15); /* Hot Fuchsia for destructive actions */
+  --destructive-foreground: oklch(1 0 0);
+  
+  --success: oklch(0.85 0.25 150); /* Electric Emerald Green #00FF94 for success */
+  --success-foreground: oklch(0.1 0.05 260); /* Dark text on green */
   
   --border: oklch(0.9 0.02 260);
   --input: oklch(0.9 0.02 260);
-  --ring: oklch(0.6 0.18 150);
+  --ring: oklch(0.65 0.20 15);
   
   --radius: 0rem; /* Sharp corners for Industrial Precision */
   
-  --chart-1: oklch(0.6 0.18 150);
-  --chart-2: oklch(0.5 0.15 150);
-  --chart-3: oklch(0.4 0.12 150);
-  --chart-4: oklch(0.3 0.10 150);
-  --chart-5: oklch(0.2 0.08 150);
+  --chart-1: oklch(0.65 0.20 15);
+  --chart-2: oklch(0.55 0.18 15);
+  --chart-3: oklch(0.45 0.15 15);
+  --chart-4: oklch(0.35 0.12 15);
+  --chart-5: oklch(0.25 0.10 15);
   
   --sidebar: oklch(0.98 0.01 250);
-  --sidebar-foreground: oklch(0.15 0.05 260);
-  --sidebar-primary: oklch(0.6 0.18 150);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0 0 0);
+  --sidebar-primary: oklch(0.65 0.20 15);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.95 0.02 260);
-  --sidebar-accent-foreground: oklch(0.2 0.05 260);
+  --sidebar-accent-foreground: oklch(0.15 0.08 260);
   --sidebar-border: oklch(0.9 0.02 260);
-  --sidebar-ring: oklch(0.6 0.18 150);
+  --sidebar-ring: oklch(0.65 0.20 15);
 }
 
 .dark {
-  /* Main Brand Colors */
-  --primary: oklch(0.85 0.25 150); /* Electric Emerald */
-  --primary-foreground: oklch(0.1 0.05 260); /* Dark Navy text on green */
+  /* Main Brand Colors - Dark Mode */
+  --primary: oklch(0.65 0.20 15); /* Hot Fuchsia #fe4151 */
+  --primary-foreground: oklch(1 0 0); /* White text on fuchsia */
   
-  --background: oklch(0.15 0.05 260); /* Deep Navy Blue */
-  --foreground: oklch(0.96 0.01 250); /* Off-white */
+  --background: oklch(0.15 0.08 260); /* Deep Navy #0a113d */
+  --foreground: oklch(1 0 0); /* White text */
   
-  --card: oklch(0.18 0.05 260); /* Slightly lighter navy */
-  --card-foreground: oklch(0.96 0.01 250);
+  --card: oklch(0.12 0.08 260); /* Prussian Blue #050932 */
+  --card-foreground: oklch(1 0 0);
   
-  --popover: oklch(0.18 0.05 260);
-  --popover-foreground: oklch(0.96 0.01 250);
+  --popover: oklch(0.12 0.08 260);
+  --popover-foreground: oklch(1 0 0);
   
-  --secondary: oklch(0.25 0.05 260); /* Lighter navy for secondary elements */
-  --secondary-foreground: oklch(0.96 0.01 250);
+  --secondary: oklch(0.18 0.08 260); /* Slightly lighter navy */
+  --secondary-foreground: oklch(1 0 0);
   
-  --muted: oklch(0.25 0.05 260);
+  --muted: oklch(0.18 0.08 260);
   --muted-foreground: oklch(0.7 0.05 260);
   
-  --accent: oklch(0.25 0.05 260);
-  --accent-foreground: oklch(0.96 0.01 250);
+  --accent: oklch(0.18 0.08 260);
+  --accent-foreground: oklch(1 0 0);
   
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.65 0.20 15); /* Hot Fuchsia */
+  --destructive-foreground: oklch(1 0 0);
   
-  --border: oklch(0.3 0.05 260); /* Visible borders for "blueprint" feel */
-  --input: oklch(0.3 0.05 260);
-  --ring: oklch(0.85 0.25 150);
+  --success: oklch(0.85 0.25 150); /* Electric Emerald Green #00FF94 for success */
+  --success-foreground: oklch(0.1 0.05 260); /* Dark text on green */
   
-  --chart-1: oklch(0.85 0.25 150);
-  --chart-2: oklch(0.75 0.20 150);
-  --chart-3: oklch(0.65 0.15 150);
-  --chart-4: oklch(0.55 0.10 150);
-  --chart-5: oklch(0.45 0.05 150);
+  --border: oklch(0.25 0.08 260); /* Visible borders */
+  --input: oklch(0.25 0.08 260);
+  --ring: oklch(0.65 0.20 15);
   
-  --sidebar: oklch(0.18 0.05 260);
-  --sidebar-foreground: oklch(0.96 0.01 250);
-  --sidebar-primary: oklch(0.85 0.25 150);
-  --sidebar-primary-foreground: oklch(0.1 0.05 260);
-  --sidebar-accent: oklch(0.25 0.05 260);
-  --sidebar-accent-foreground: oklch(0.96 0.01 250);
-  --sidebar-border: oklch(0.3 0.05 260);
-  --sidebar-ring: oklch(0.85 0.25 150);
+  --chart-1: oklch(0.65 0.20 15);
+  --chart-2: oklch(0.55 0.18 15);
+  --chart-3: oklch(0.45 0.15 15);
+  --chart-4: oklch(0.35 0.12 15);
+  --chart-5: oklch(0.25 0.10 15);
+  
+  --sidebar: oklch(0.12 0.08 260);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.65 0.20 15);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.18 0.08 260);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.25 0.08 260);
+  --sidebar-ring: oklch(0.65 0.20 15);
 }
 
 @layer base {
@@ -242,5 +253,30 @@
     height: 10px;
     border-bottom: 2px solid var(--color-primary);
     border-right: 2px solid var(--color-primary);
+  }
+  
+  /* Success colors for form results */
+  .bg-success {
+    background-color: var(--success);
+  }
+  
+  .bg-success\/20 {
+    background-color: oklch(0.85 0.25 150 / 0.2);
+  }
+  
+  .text-success {
+    color: var(--success);
+  }
+  
+  .text-success-foreground {
+    color: var(--success-foreground);
+  }
+  
+  .border-success {
+    border-color: var(--success);
+  }
+  
+  .hover\:bg-success\/90:hover {
+    background-color: oklch(0.85 0.25 150 / 0.9);
   }
 }
