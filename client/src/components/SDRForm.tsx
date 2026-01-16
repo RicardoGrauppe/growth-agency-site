@@ -100,7 +100,12 @@ export default function SDRForm() {
                       <p className="max-w-md mx-auto" style={{ color: '#666666' }}>
                         Based on your answers, your business is perfectly positioned for our Growth Ecosystem. Let's build your roadmap.
                       </p>
-                      <Button size="lg" className="w-full md:w-auto text-lg px-8 py-6 mt-4 hover:bg-success/90" style={{ backgroundColor: '#00FF94', color: '#000000' }}>
+                      <Button 
+                        size="lg" 
+                        className="w-full md:w-auto text-lg px-8 py-6 mt-4 hover:bg-success/90" 
+                        style={{ backgroundColor: '#00FF94', color: '#000000' }}
+                        onClick={() => window.open('https://calendar.app.google/Xhfs1J8yTwp5tBsK8', '_blank')}
+                      >
                         Select a Time on Calendar
                       </Button>
                     </>
